@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.envrc
+
+# Output directories (generated during experiments)
+output/
+logs/
+
+# Experiment logs
+experiment_commands.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+models/
+
+# Data files (users should download separately)
+data/
+
+# AWS
+.aws/

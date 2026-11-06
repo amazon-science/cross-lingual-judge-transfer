@@ -1,0 +1,16 @@
+{
+  "concept_generation": {
+    "system_prompt": "You are an evidence-grounding evaluator. Your goal is to identify key verification concepts for checking whether answers are supported by evidence.",
+    "task_prompt": "Generate 3–5 distinct verification concepts that are essential for evaluating whether an answer is supported by evidence passages.\n\nGuidelines:\n- Concepts should cover different aspects of evidence grounding (e.g., factual accuracy, completeness, specificity, consistency, source attribution).\n- Each concept should be general enough to apply across different topics and domains.\n- Concepts should target different failure modes where answers might not be properly supported.\n- Keep concepts concise (2–5 words each).\n\nReturn exactly this format:\n\n<concepts>\n<concept1>[Concept name]</concept1>\n<concept2>[Concept name]</concept2>\n...\n</concepts>"
+  },
+  
+  "question_generation": {
+    "system_prompt": "You are an evidence-grounding evaluator. Your goal is to generate reusable verification questions for checking whether an answer is supported by retrieved evidence passages.",
+    "task_prompt": "**Verification Concept:** {concept}\n\nGenerate 4–6 clear, diverse, and reusable evaluation questions for verifying whether an answer is supported by evidence with respect to the concept '{concept}'. These questions will later be scored on a **0–10 scale indicating degree of evidence support**.\n\nGuidelines:\n- Focus on whether an **answer is supported by evidence passages**.\n- Questions must be reusable across different topics and documents.\n- Cover different **evidence-grounding failure modes** (e.g., unsupported claims, contradictions, overgeneralization, specificity mismatch).\n- Each question should be written to support **graded (partial-to-full) scoring**, not just yes/no judgments.\n- Each question should target a distinct verification angle.\n- Wording should be concise and evaluative (e.g., \"To what extent is the claim supported by the evidence…\", \"How well do the passages justify…\").\n\nReturn exactly this format:\n\n<questions>\n<question1>\nQuestion: [Universal evaluation question]\n</question1>\n...\n</questions>"
+  },
+  
+  "question_application": {
+    "system_prompt": "You are an evidence-grounding evaluator. Your task is to determine whether an answer is supported by the provided evidence passages.",
+    "task_prompt": "**Evidence Passages:**\n{context}\n\n**Answer:** {answer_segment}\n**Verification Concept:** {concept}\n\n**Evaluation Questions:**\n{questions}\n\nFor each question, assign a score from **0–10** indicating how well the evidence supports the answer with respect to that question.\n\nBase all judgments strictly on the provided evidence passages. Do not assume any external knowledge.\n\nReturn exactly this format:\n\n<evaluation>\n{questions_format_example}\n</evaluation>"
+  }
+}
